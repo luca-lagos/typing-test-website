@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.disabled {
+  display: none;
+}
+
+.progress-bar {
+  height: 10px;
+  width: 100%;
+  background-color: red;
+}
+
+.progress-bar div {
+  height: 10px;
+  background-color: green;
+}
+
+.time-completed {
+  animation-name: bar-completed;
+  animation-duration: --time;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+
+@keyframes bar-completed {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
