@@ -6,19 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Typing test website - Luca Lagos</title>
     <link rel="stylesheet" href="./src/css/App.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
   </head>
   <body>
     <div id="progress_bar" class="progress-bar">
       <div></div>
     </div>
-    <button id="btn_start" title="start-button" class="start">Start</button>
+    <input type="text" name="" id="">
+    <div class="start">
+      <div>
+        <h2>Typing test</h2>
+        <p>
+          Please, press the button to start this game, I hope yo enjoy this :).
+        </p>
+      </div>
+      <button id="btn_start" title="Start game"><span class="material-icons">
+        play_arrow
+        </span></button>
+    </div>
+    <div id="actual_word"></div>
     <div id="finish" class="disabled">
-      <p id="correct_letters">Correct words: <span>0</span></p>
-      <p id="incorrect_letters">Incorrect words: <span>0</span></p>
-      <p id="wpm">Words per minute: <span>0</span></p>
-      <button title="restart-button" id="btn_restart">Restart</button>
+      <p id="correct_letters">Letras correctas: <span></span></p>
+      <p id="incorrect_letters">Letras incorrectas: <span></span></p>
+      <p id="wpm">Palabras terminadas: <span></span></p>
+      <p id="total_points"></p>
+      <button title="Restart game" id="btn_restart"><span class="material-icons">
+        replay
+        </span></button>
       <footer></footer>
     </div>
-    <script src="./src/js/App.js"></script>
+    <script src="./src/js/App.js" defer></script>
+    <script src="./src/js/Words.js"></script>
   </body>
 </html>

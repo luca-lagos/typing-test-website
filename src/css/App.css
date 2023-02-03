@@ -3,24 +3,62 @@
   padding: 0;
 }
 
+:root {
+  --font-family: Arial, Helvetica, sans-serif;
+  --back-body: rgb(36, 0, 13);
+  --gradient-body: linear-gradient(
+    90deg,
+    rgba(36, 0, 13, 1) 0%,
+    rgba(121, 9, 26, 1) 35%,
+    rgba(46, 0, 255, 1) 100%
+  );
+  --color: white;
+  --back-progress-bar: rgba(255, 255, 255, 0.3);
+  --back-progress-div: white;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--back-body);
+  background: var(--gradient-body);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .disabled {
-  display: none;
+  display: none !important;
+}
+
+.invisible{
+  opacity: 0;
+}
+
+input{
+  position: absolute;
+  top: -5000px;
 }
 
 .progress-bar {
-  height: 10px;
+  height: 25px;
   width: 100%;
-  background-color: red;
+  background: var(--back-progress-bar);
+  backdrop-filter: blur(4.3px);
+  -webkit-backdrop-filter: blur(4.3px);
+  position: absolute;
+  top: 0;
 }
 
 .progress-bar div {
-  height: 10px;
-  background-color: green;
+  height: 25px;
+  background-color: var(--back-progress-div);
 }
 
 .time-completed {
   animation-name: bar-completed;
-  animation-duration: --time;
+  animation-duration: var(--time);
   animation-fill-mode: forwards;
   animation-timing-function: linear;
 }
@@ -33,3 +71,175 @@
     width: 100%;
   }
 }
+
+.start {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+}
+
+.start div {
+  text-align: center;
+}
+
+.start div h2 {
+  font-size: 50px;
+  color: var(--color);
+  margin-bottom: 20px;
+}
+
+.start div p {
+  padding: 0 50px;
+  font-size: 20px;
+  color: var(--color);
+  opacity: 0.4;
+}
+
+.start button {
+  border: 0;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.start button:hover {
+  opacity: 1;
+}
+
+.start button span {
+  font-size: 65px;
+  background-color: var(--back-body);
+  background-image: var(--gradient-body);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+#finish{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+#finish p, #finish button{
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  font-size: 20px;
+  background-color: var(--back-progress-bar);
+  padding: 15px 30px;
+  border: 0;
+  border-radius: 5px;
+  color: var(--color);
+}
+
+#finish button{
+  margin-top: 35px;
+  width: 150px;
+  height: 150px;
+  padding: 50px 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--back-progress-bar);
+  transition: all 0.3s;
+}
+
+#finish button:hover{
+  background-color: var(--back-progress-div);
+}
+
+#finish button span {
+  font-size: 65px;
+  background-color: var(--back-body);
+  background-image: var(--gradient-body);
+  background-size: 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+#finish p span{
+  margin-left: 10px;
+}
+
+#finish h3{
+  margin-top: 25px;
+  color: var(--color);
+  font-size: 20px;
+}
+
+#actual_word{
+  font-size: 90px;
+  letter-spacing: 1rem;
+  color: var(--back-progress-bar);
+}
+
+.actual-letter{
+  color: var(--back-progress-div);
+}
+
+.visible{
+  animation-name: visible;
+  animation-duration: 500ms;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+.hide{
+  position: absolute;
+	font-size: 90px;
+	top: var(--top);
+	left: var(--left);
+	animation-duration: 500ms;
+	animation-name: hide;
+	animation-timing-function: ease-in-out;
+}
+
+@keyframes visible {
+	0%{
+		opacity: 0%;
+	}
+	100%{
+		opacity: 100%;
+	}
+}
+
+@keyframes hide{
+	0%{
+
+	}
+	50%{
+		color: var(--color);
+	}
+	100%{
+		transform: translateY(-100%);
+		opacity: 0%;
+		font-size: calc( 90px / 2 );
+	}
+}
+
+#total_points{
+  display: flex !important;
+  justify-content: center !important;
+  height: 120px;
+  align-items: center !important;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
