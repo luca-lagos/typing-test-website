@@ -10,7 +10,7 @@ const word_container = document.querySelector("#actual_word");
 const word_input = document.querySelector("input");
 const total_points = document.getElementById("total_points");
 
-const playtime = 1;
+const playtime = 60;
 let correct_letters;
 let incorrect_letters;
 let finished_words;
@@ -66,26 +66,35 @@ const finish = () => {
   finish_element.classList.toggle("disabled", false);
   progress_bar_son.classList.toggle("time-completed", false);
   wpm_element.textContent = finished_words;
-  finished_words = 16;
   if (finished_words > 0 && finished_words <= 5) {
     total_points.style = "background-color: rgb(250, 124, 7); color: black;";
-    total_points.innerText = '"Podrías practicar un poco más"';
-  } 
+    total_points.innerHTML = `"Podrías practicar un poco más" <span class="material-icons">
+    sentiment_dissatisfied
+    </span>`;
+  }
   if (finished_words > 5 && finished_words <= 10) {
     total_points.style = "background-color: rgb(221, 190, 15); color: black;";
-    total_points.innerText = '"Bastante bien pibe/a"';
-  } 
+    total_points.innerHTML = `"Bastante bien pibe/a" <span class="material-icons">
+    sentiment_neutral
+    </span>`;
+  }
   if (finished_words > 10 && finished_words <= 15) {
     total_points.style = "background-color: rgb(182, 255, 13); color: black;";
-    total_points.innerText = '"Un poquito ma Edwin/a"';
-  } 
+    total_points.innerHTML = `"Un poquito ma Edwin/a" <span class="material-icons">
+    sentiment_satisfied
+    </span>`;
+  }
   if (finished_words > 15) {
     total_points.style = "background-color: rgb(47, 179, 113); color: black;";
-    total_points.innerText = '"Sos la bestia"';
+    total_points.innerHTML = `"Sos la bestia" <span class="material-icons">
+    sentiment_very_satisfied
+    </span>`;
   }
-  if(finished_words === 0) {
+  if (finished_words == 0) {
     total_points.style = "background-color: rgb(211, 61, 61);";
-    total_points.innerText = '"Ponele voluntad querido/a"';
+    total_points.innerHTML = `"Ponele voluntad querido/a" <span class="material-icons">
+    sentiment_very_dissatisfied
+    </span>`;
   }
 };
 
